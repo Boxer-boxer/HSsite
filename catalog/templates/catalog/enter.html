@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+	 <title>Helena Silva - Bem-vindo! </title>
+</head>
+<body>
+{% extends 'catalog/base.html' %}
+{% load static %}
+
+{% block content %}
+<span class='col-6 text-center' id='logo'>
+		<h1> Helena Silva </h1><h1>Ouro & Prata </h1>
+</span>
+
+<span class='col-12 offset-1'>
+            <span class='row'>
+                <span class='col-12 text-center'>
+					<figure class='figure'>
+						<a href='{% url "home" %}'><img src="https://imgur.com/HSWHv32.jpg" heigth='150' width='150' class='img-fluid'>
+						<figcaption class='figure-caption'>Home</figcaption>
+						</a>
+					</figure>
+                </span>
+                <span class='col-12 text-center'>
+    				<figure class='figure'>
+    					<a href='{% url "catalog" %}'><img src="https://imgur.com/u8MdkGO.jpg" heigth='150' width='150' class='img-fluid'>
+    						<figcaption class='figure-caption'>Catálogo</figcaption>
+    					</a>
+    				</figure>
+                </span>
+                <span class='col-12 text-center'>
+    				<figure class='figure'>
+    					<a href='{% url "login" %}'><img src="https://imgur.com/AEFI3wc.jpg" heigth='150' width='150' class='img-fluid'>
+    					<figcaption class='figure-caption'> Login/Registro </figcaption>
+    					</a>
+    				</figure>
+				</span>
+            </span>
+</span>
+
+
+{% endblock content %}
+
+
+
+
+
+</body>
+</html>

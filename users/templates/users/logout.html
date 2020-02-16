@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+	 <title>Helena Silva - Logout </title>
+</head>
+
+<body>
+{% extends 'catalog/navbar.html'%}
+{% load static %}
+{% load crispy_forms_tags %}
+
+
+{% block content %}
+
+ <div class='row'>
+	<div class='col col-lg-6 col-sm-12 offset-lg-3 mt-2 '>
+		{% if messages %}
+			{% for message in messages%}
+			{{message}}
+			{% endfor %}
+		{% endif %}
+		<div class='card border-0'>
+			<div class='card-content p-3'>
+				<span class='h5 font-weight-light'> Muito obrigado pela sua visita, volte sempre! </span>
+			</div>
+		</div>
+		<div class='col col-lg-12 col-sm-12 mt-2 '>
+			<h5 class='text-muted font-weight-light d-inline pt-5'> Quer voltar a entrar? </h5>
+			<a href="{% url 'login' %}" class='d-inline h5 font-weight-light'> Faça o login! </a>
+		</div>
+	</div>
+</div>
+
+
+{% endblock content %}
+
+</body>
+</html>

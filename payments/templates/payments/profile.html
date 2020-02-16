@@ -1,0 +1,34 @@
+
+{% extends 'catalog/navbar.html'%}
+{% load static %}
+{% load crispy_forms_tags %}
+<head>
+	 <title>Helena Silva - Perfil de {{user.username}} </title>
+</head>
+
+{% block content %}
+<span class="ml-3">
+    <h2 class='display-4 mb-4 ml-3 mt-3'>Perfil de <span class='display-4 text-muted'>{{user.username}}</span> </h2>
+
+    <h3 class='display-5 font-weight-light ml-4 mt-3 mb-4'> Encomedas feitas: </h3>
+    {% for o in order %}
+    	{% if o.is_ordered == True and o.total > 0 %}
+    		<div class='col-lg-10 col-sm-10 offset-lg-1 offset-sm-1 card border-warning'>
+        		<span class=' card-body text-muted h5 ml-3 mt-3'> ID da encomenda: </span>
+        		<span class='card-body font-weight-light h5 ml-3'> {{o.order_id}} </span>
+        		<span class='text-muted h5 ml-3 mt-3'> Produtos: </span>
+        		<span class='card-body font-weight-light h5 ml-3'> {{o.items}} </span>
+        		<span class='text-muted h5 ml-3 mt-3'> Preço: </span>
+        		<span class='card-body font-weight-light h5 ml-3'> {{o.total}} €</span>
+        		<span class='text-muted h5 ml-3 mt-3'> Data de emissão: </span>
+        		<span class='card-body font-weight-light h5 ml-3'> {{o.timestamp}} </span>
+        		<span class='text-muted h5 ml-3 mt-3'> Pagamento feito por: </span>
+        		<span class='card-body font-weight-light h5 ml-3'> {{o.ordered_through}} </span>
+        		<a class='ml-3 mt-3 mb-3 btn btn-warning' href="{% url 'profile_orders' slug=o.slug %}"> Ver Detalhes </a>
+    		</div>
+    		<hr>
+    	{% endif%}
+    {% endfor %}
+</span>
+
+{% endblock content%}

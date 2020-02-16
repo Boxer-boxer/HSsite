@@ -1,0 +1,50 @@
+{% extends "catalog/navbar.html" %}
+<head>
+	 <title>Helena Silva - Pagamento </title>
+</head>
+{% block content %}
+
+{% if messages %}
+    {% for message in messages %}
+        <div class="alert alert-success">{{message}} <br> <a href='{% url "contact" %}'> Página de contacto </a> </div>
+    {% endfor %}
+{% endif %}
+
+<span class=' card border-warning m-5 p-5'>
+      <h1 class='p-3 display-lg-4  bg-white d-block' style="margin-top: -2.3em!important;"> A sua encomenda será enviada por CTT! </h1>
+
+        <span class='text-muted h5'> Nome Completo: </span><p class='m-3 mb-4'> {{order.nome_completo}} </p>
+
+        <span class='text-muted h5'> Morada: </span><p class='m-3 mb-4'> {{order.rua}}, {{order.numero}} </p>
+
+        <span class='text-muted h5'> Código Postal: </span><p class='m-3 mb-4 '> {{order.codigo_postal_1}}-{{order.codigo_postal_2}} </p>
+
+        <span class='text-muted h5'> Encomenda: </span><p class='m-3 mb-4'> {{order.cart}} </p>
+
+        <table style="width:100%">
+
+            <tr>
+                <th> Referência: </th>
+
+            </tr>
+
+            <tr>
+                <th>{{ order.items }}</th>
+            </tr>
+
+
+        </table>
+
+    <span class='text-muted h5 mt-3'> Subtotal: </span><p class='m-3 mb-4 font-weight-bold'> {{order.total}}.00 € </p>
+
+    <span class='text-muted h5 mt-3'> Preço de Transportes: </span><p class='m-3 mb-4 font-weight-bold'> ???.00 € </p>
+
+    <span class='text-muted h5 mt-3'> Total: </span><p class='m-3 mb-4 font-weight-bold'> ???.00 € </p>
+
+    <h5 class='p-3 display-lg-4  bg-white d-block'> A sua encomenda será enviada assim que confirmarmos o pagamento. </h5>
+
+    <p> Caso tenha dúvidas, questões ou tenha encontrado algum erro, entre em <a href="{% url 'contact' %}">contacto connosco </a></p>
+
+{% endblock content %}
+</body>
+</html>

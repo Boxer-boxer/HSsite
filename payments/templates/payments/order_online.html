@@ -1,0 +1,5 @@
+<form action='{% url "order_final" order.slug %}' method='post'>	
+	{% csrf_token %}
+	<input id="Order_is_ordered" type="hidden" name="ordered" value="True">
+	<input type="submit" name='CTT' value="Encomendar por CTT">
+</form>

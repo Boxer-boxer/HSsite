@@ -1,0 +1,5 @@
+<form action='{% url "order_final" order.slug %}' method='post'>
+	{% csrf_token %}
+	<input id="Order_is_ordered" type="hidden" name="ordered" value="True">
+	<input  class='col-lg-10 col-sm-10 offset-lg-1 offset-sm-1 btn btn-danger'  type="submit" name='CTT' value="Encomendar por Contra-reembolso">
+</form>

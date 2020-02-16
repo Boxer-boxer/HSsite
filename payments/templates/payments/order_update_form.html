@@ -1,0 +1,29 @@
+<head>
+	 <title>Helena Silva - Pagamento </title>
+</head>
+{% extends "catalog/navbar.html" %}
+
+{% block content %}
+<span class=' card border-warning form-group m-5 p-5'>
+    <form method="post">
+        {% csrf_token %}
+        <div class='card-body'>
+              Nome Completo: <br> <p class='m-3 mb-4 col-lg-12 col-sm-12'> {{ form.nome_completo }} </p>
+              E-mail: <br> <p class='m-3 mb-4 col-lg-12 col-sm-12'>  {{ form.email }} </p>
+              Rua: <br> <p class='m-3 mb-4 col-lg-12 col-sm-12'> {{ form.rua }} </p>
+              Numero: <br> <p class='m-3 mb-4 col-lg-12 col-sm-12'> {{ form.numero }} </p>
+              Localidade: <br> <p class='m-3 mb-4 col-lg-12 col-sm-12'>  {{ form.localidade }} </p>
+              Distrito: <br>  <p class='m-3 mb-4 col-lg-12 col-sm-12'> {{ form.distrito }} </p>
+              Código Postal: <br> <p class='m-3 mb-4 col-lg-12 col-sm-12'> {{ form.codigo_postal_1 }}
+              <span class='m-3 mb-4 col-lg-12 col-sm-12'>{{ form.codigo_postal_2 }} </span>
+
+
+        </div>
+        <input type="submit" class='btn btn-warning col-lg-12 col-sm-12 ' name="Continuar">
+    </form>
+</span>
+
+{% endblock content %}
+</body>
+</html>
+

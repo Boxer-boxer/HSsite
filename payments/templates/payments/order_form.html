@@ -1,0 +1,33 @@
+<head>
+	 <title>Helena Silva - Pagamento </title>
+</head>
+{% extends "catalog/navbar.html" %}
+
+{% block content %}
+<span class=' card border-warning form-group m-5 p-5'>
+    <form method='post'>
+    	{% csrf_token %}
+        <h1 class='p-3 display-lg-4  bg-white d-block' style="margin-top: -2.3em!important;"> Preencha este formulário para poder realizar a sua encomenda</h1>
+        <div class='card-body'>
+          Nome Completo: <br> <p class='m-3 mb-4 col-lg-12 col-sm-12'> {{ form.nome_completo }} </p>
+          E-mail: <br> <p class='m-3 mb-4 col-lg-12 col-sm-12'>  {{ form.email }} </p>
+          <p class='ml-3 mb-4 col-lg-12 col-sm-12'><small>Este endereço será utilizado para enviar a confirmação da sua encomenda, por favor, certifique-se que inseriu um endereço de e-mail valido </small></p>
+          Rua: <br> <p class='m-3 mb-4 col-lg-12 col-sm-12'> {{ form.rua }} </p>
+          <p class='ml-3 mb-4 col-lg-12 col-sm-12'><small>Por favor, insira apenas o nome da sua rua (por exemplo: "Rua do Trovador", ou "Tv. de Leiria"). </small></p>
+          Numero: <br> <p class='m-3 mb-4 col-lg-12 col-sm-12'> {{ form.numero }} </p>
+          <p class='ml-3 mb-4 col-lg-12 col-sm-12'><small>Por favor, insira apenas o número da sua morada </small></p>
+          Andar: <br> <p class='m-3 mb-4 col-lg-12 col-sm-12'> {{ form.andar }} </p>
+          <p class='ml-3 mb-4 col-lg-12 col-sm-12'><small>Por favor, insira o seu andar (por exemplo: 1ºE ou R/C), caso não tenha um andar, preencha este campo com '0' </small></p>
+          Localidade: <br> <p class='m-3 mb-4 col-lg-12 col-sm-12'>  {{ form.localidade }} </p>
+          Distrito: <br>  <p class='m-3 mb-4 col-lg-12 col-sm-12'> {{ form.distrito }} </p>
+          Código Postal: <br> <p class='m-3 mb-4 col-lg-12 col-sm-12'> {{ form.codigo_postal_1 }}
+          <span class='m-3 mb-4 col-lg-12 col-sm-12'>{{ form.codigo_postal_2 }} </span>
+
+        <input type="submit" class='btn btn-warning col-lg-12 col-sm-12 mt-4' name="Continuar">
+        </div>
+    </form>
+</span>
+
+{% endblock content %}
+</body>
+</html>

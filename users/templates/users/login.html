@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+	 <title>Helena Silva - Login </title>
+</head>
+
+<body>
+{% extends 'catalog/navbar.html'%}
+{% load static %}
+{% load crispy_forms_tags %}
+
+
+{% block content %}
+  <div class='row'>
+	<div class='col col-lg-6 col-sm-12 offset-lg-3 mt-2 '>
+
+		{% if messages %}
+			{% for message in messages%}
+				<span class='p-3 mb-2 bg-success text-white d-block'>{{message}}</span>
+			{% endfor %}
+		{% endif %}
+		<div class='card'>
+			<div class='card-content p-3'>
+				<form method='post'>
+					{% csrf_token %}
+					{{ form|crispy }}
+					<button type='submit' value='submit' class='btn btn-large btn-warning float-right'> Login </button>
+				</form>
+			</div>
+		</div>
+		<div class='col col-lg-12 col-sm-12 mt-2 '>
+			<h5 class='text-muted font-weight-light d-inline pt-5'> Ainda não tem uma conta? </h5>
+			<a href="{% url 'signup' %}" class='d-inline h5 font-weight-light'> Faça uma! </a> <br>
+
+			<h5 class='text-muted font-weight-light d-inline pt-5'> Não se lembra da sua password? </h5>
+			<a href="{% url 'password_reset' %}" class='d-inline h5 font-weight-light'> Recupere a password! </a>
+		</div>
+	</div>
+</div>
+{% endblock content %}
+
+</body>
+</html>

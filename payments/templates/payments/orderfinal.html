@@ -1,0 +1,57 @@
+<head>
+	 <title>Helena Silva - Pagamento </title>
+</head>
+{% extends "catalog/navbar.html" %}
+
+{% block content %}
+
+{% if messages %}
+    {% for message in messages %}
+        <div class="alert alert-success">{{message}} <br> <a href='{% url "contact" %}'> Página de contacto </a> </div>
+    {% endfor %}
+{% endif %}
+
+<span class=' card border-warning m-5 p-5'>
+      <h1 class='p-3 display-lg-4  bg-white d-block' style="margin-top: -2.3em!important;"> A sua encomenda está a caminho! </h1>
+
+        <span class='text-muted h5'> Nome Completo: </span><p class='m-3 mb-4'> {{order.nome_completo}} </p>
+
+        <span class='text-muted h5'> Morada: </span><p class='m-3 mb-4'> {{order.rua}}, {{order.numero}} </p>
+
+        <span class='text-muted h5'> Código Postal: </span><p class='m-3 mb-4 '> {{order.codigo_postal_1}}-{{order.codigo_postal_2}} </p>
+
+        <span class='text-muted h5'> Encomenda: </span><p class='m-3 mb-4'> {{order.cart}} </p>
+
+        <table style="width:100%">
+
+            <tr>
+                <th> Imagem </th>
+                <th> Referência </th>
+                <th> Preço </th>
+            </tr>
+            {% for items in order.items %}
+            <tr>
+                <th> <img style="width:100px; height:100px;" src="{{items.image_1.url}}"></img></th>
+                <th> {{items}} </th>
+                <th> {{ items.price }} € </th>
+            </tr>
+            {% endfor %}
+
+        </table>
+
+    <span class='text-muted h5 mt-3'> Subtotal: </span><p class='m-3 mb-4 font-weight-bold'> {{order.total}}.00 € </p>
+
+ <!--   <span class='text-muted h5 mt-3'> Preço de Transportes: </span><p class='m-3 mb-4 font-weight-bold'> ???.00 € </p>
+
+    <span class='text-muted h5 mt-3'> Total: </span><p class='m-3 mb-4 font-weight-bold'> ???.00 € </p> -->
+
+    <h5 class='p-3 display-lg-4  bg-white d-block'> A sua encomenda vai a caminho! </h5>
+
+    <p> A sua encomenda vai ser enviada por CTT a contra-reembolso. A transação ficará completa quando, ao receber a encomendar pagar pelo valor total da encomenda</p> <br>
+    <p> Caso tenha dúvidas, questões ou tenha encontrado algum erro, entre em <a href="{% url 'contact' %}">contacto connosco </a></p>
+
+
+
+{% endblock content %}
+</body>
+</html>

@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+	 <title>Helena Silva - Home</title>
+</head>
+<body>
+{% extends 'catalog/navbar.html'%}
+{% load static %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+
+<div id='CarouselJumbotron' class='jumbotron jumbotron-fluid carousel slide bg-white' data-ride='carousel'>
+	<ol class='carousel-indicators'>
+
+		<li data-target="#CarouselJumbotron" data-slide-to='0' class='active'> </li>
+		<li data-target="#CarouselJumbotron" data-slide-to='1' class='active'> </li>
+		<li data-target="#CarouselJumbotron" data-slide-to='2' class='active'> </li>
+
+	</ol>
+	<div class='carousel-inner' role='listbox'>
+		<div class='carousel-item active'>
+			<div class='img'>
+				<img style='width:100%; height:100%;' src="https://imgur.com/yyZfhKa.jpg" alt='First slide'>
+			</div>
+		</div>
+		<div class='carousel-item'>
+			<div class='img'>
+				<img style='width:100%; height:100%;' src="https://imgur.com/4QdnC2F.jpg" alt='Second slide'>
+			</div>
+		</div>
+		<div class='carousel-item'>
+			<div class='img'>
+				<img style='width:100%; height:100%;' src="https://imgur.com/K81F7NA.jpg" alt='Third slide'>
+			</div>
+				<!--<div class='carousel-caption'>
+					<h5 class='display-3 text-left text-bottom'> Text for the carousel </h5>
+					<p class='text-left pt-2 text-bottom'> Something something another </p>
+				</div>-->
+		</div>
+		<a class='carousel-control-prev' href="#CarouselJumbotron" role='button' data-slide='prev'>
+			<span class='carousel-control-prev-icon' aria-hidden='true'></span>
+			<span class='sr-only'>Previous </span>
+		</a>
+		<a class='carousel-control-next' href="#CarouselJumbotron" role='button' data-slide='next'>
+			<span class='carousel-control-next-icon' aria-hidden='true'></span>
+			<span class='sr-only'>Next </span>
+		</a>
+	</div>
+</div>
+<div class='container-fluid'>
+
+<div class='row'>
+	<div class='col-lg-8 col-sm-12 offset-lg-2 p-4'>
+		<div class='card border-0 ' id='home-card'>
+			<div class='card-body border-bottom border-top bg-light'>
+				<h5 class='card-title'><span class='display-4'> Catálogo </span></h5>
+				<p class='h5 font-weight-light'> O nosso catálogo tem mais de XXX produtos!</p>
+				<p class='h5 font-weight-light'>Venha ver, escolha o que quer comprar e encomende!</p>
+
+				<a href='{% url "catalog" %}'	class='btn btn-warning btn-lg float-right'> Catálogo </a>
+			</div>
+		</div>
+	</div>
+
+
+</div>
+
+{% include 'catalog/snippets/catalog_preview.html' with Item=Item %}
+</div>
+
+	<div class='col-lg-8 col-sm-12 offset-lg-2 p-4'>
+		<div class='card border-0'>
+			<div class='card-body  border-bottom border-top bg-light'>
+				{% if user.is_authenticated %}
+				<h5 class='card-title'><span class='display-4'> Olá, <span class='font-weight-normal'>{{user.username}}</span>! </span></h5>
+				<p class='h5 font-weight-light'>  Obrigado pela sua visita! </p>
+				<a href='{% url "cart_home" %}'	class='btn btn-warning btn-lg float-right '> Ver Carrinho </a>
+				<a href='{% url "logout" %}'	class='btn btn-warning btn-lg float-right mr-3'> Logout </a>
+				{% else %}
+				<h5 class='card-title'><span class='display-4'> Ainda não tem uma conta? </span></h5>
+				<p class='h5 font-weight-light'>  Não espere mais! Faça uma agora! </p>
+				<a href='{% url "signup" %}'	class='btn btn-warning btn-lg float-right mr-3'> Fazer Conta </a>
+				{% endif %}
+				</form>
+
+{% endblock content %}
+
+
+
+
+</body>
+</html>

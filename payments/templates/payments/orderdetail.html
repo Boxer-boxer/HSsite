@@ -1,0 +1,44 @@
+<head>
+	 <title>Helena Silva - Pagamento </title>
+</head>
+{% extends "catalog/navbar.html" %}
+
+{% block content %}
+<span class=' card border-warning m-5 p-5'>
+
+        <span class='text-muted h5'> Nome Completo: </span><p class='m-3 mb-4'> {{order.nome_completo}} </p>
+
+        <span class='text-muted h5'> Morada: </span><p class='m-3 mb-4'> {{order.rua}}, {{order.numero}}, {{order.andar}}, {{order.localidade}} {{order.distrito}} </p>
+
+        <span class='text-muted h5'> Código Postal: </span><p class='m-3 mb-4 '> {{order.codigo_postal_1}}-{{order.codigo_postal_2}} </p>
+
+        <span class='text-muted h5'> Nº de encomenda: </span><p class='m-3 mb-4'> {{order.cart}} </p>
+
+        <span class='text-muted h5'> Subtotal: </span><p class='m-3 mb-4'> {{order.total}}.00 € </p>
+
+        {% for items in order.items %}
+            <span class='text-muted h5'> Para encomendar: </span><p class='m-3 mb-4'> {{items}}  </p>
+        {% endfor %}
+
+        <p><small>Antes de continuar, por favor confirme que a informação que nos facultou está correcta. Caso não, carregue no botão "Editar Informação" </small></p>
+        <a class='btn btn-info offset-md-10 ' href="{% url 'CTT_order_edit' order.slug %}">Editar informação</a>
+
+
+
+</span>
+
+
+
+<form action='{% url "order_finish" order.slug %}' method='post'>
+	{% csrf_token %}
+	<input id="Order_is_ordered"  type="hidden" name="ordered" value="True">
+	<input class='col-lg-10 col-sm-10 offset-lg-1 offset-sm-1 btn btn-warning' type="submit" name='Online' value="Encomendar Online">
+</form>
+
+{% include "payments/order_ctt.html" %}
+
+
+
+{% endblock content %}
+</body>
+</html>

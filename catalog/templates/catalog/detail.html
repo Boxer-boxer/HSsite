@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Helena Silva Ouro e Prata - Detalhe de Produto</title>
+</head>
+<body>
+{% extends 'catalog/navbar.html'%}
+{% load static %}
+{% load crispy_forms_tags %}
+
+
+{% block content %}
+<div id="fb-root"></div>
+<script async defer crossorigin="anonymous" src="https://connect.facebook.net/pt_PT/sdk.js#xfbml=1&version=v3.2"></script>
+
+<div class='container-fluid'>
+	<div class='card border m-3 p-5'>
+		<div class='row'>
+			<div class='col-lg-12 col-sm-12 text-center text-align-center border bg-white p-5'>
+
+			<!-- The carousel starts here -->
+            <!-- ideal size: 500x500px -->
+			<div id='ItemCarousel' class='carousel slide bg-white' data-ride='carousel'>
+				<ol class='carousel-indicators'>
+
+					<li data-target='ItemCarousel' data-slide-to='0' class='active'></li>
+					<li data-target='ItemCarousel' data-slide-to='1' class='active'></li>
+					<li data-target='ItemCarousel' data-slide-to='2' class='active'></li>
+					<li data-target='ItemCarousel' data-slide-to='4' class='active'></li>
+
+				</ol>
+
+				<!--inner workings of the carousel -->
+
+				<div class='carousel-inner' style='width: 100%; height: 100%;' role='listbox'>
+					<div class='carousel-item active  '>
+						<div class='img'>
+							<img src="{{ object.image_1.url }}" alt='first-slide'>
+						</div>
+					</div>
+					<div class='carousel-item'>
+						<div class='img'>
+							<img src="{{ object.image_2.url }}" alt='second-slide'>
+						</div>
+					</div>
+					<div class='carousel-item'>
+						<div class='img'>
+							<img src="{{ object.image_3.url }}" alt='third-slide'>
+						</div>
+					</div>
+					<div class='carousel-item'>
+						<div class='img'>
+							<img src="{{ object.image_4.url }}" alt='forth-slide'>
+						</div>
+					</div>
+				</div>
+					<!-- carousel controls! -->
+
+					<a class='carousel-control-prev' href="#ItemCarousel" role='button' data-slide='prev'>
+						<span class='carousel-control-prev-icon' aria-hidden='true'></span>
+						<span class='sr-only'> Previous </span>
+					</a>
+
+					<a class='carousel-control-next' href="#ItemCarousel" role='button' data-slide='next'>
+						<span class='carousel-control-next-icon' aria-hidden='true'></span>
+						<span class='sr-only'> Next </span>
+					</a>
+
+
+			</div>
+
+
+			</section>
+
+
+			</div>
+			<div class='col-lg-8 col-sm-12 mt-3'>
+				<div class='col-lg-6 col-sm-5 m-4'>
+					<div class='row mb-3'>
+						<div class='col-3 col-sm-5 p-2'>
+							<div class='h5 mb-2 mt-2'> Material:
+							</div>
+						</div>
+						<div class='col p-3 offset-md-1'>
+							<span class=' h5 font-weight-light text-muted'>{{Item.type_material}}
+							</span>
+						</div>
+					</div>
+					<div class='row mb-3'>
+						<div class='col-3 col-sm-5 p-2'>
+							<div class='h5 mb-2 mt-2'> Tipo:
+							</div>
+						</div>
+						<div class='col p-3 offset-md-1'>
+							<span class=' h5 font-weight-light text-muted'>{{Item.type_item}}
+							</span>
+						</div>
+					</div>
+
+					<div class='row mb-3'>
+						<div class='col-3 col-sm-5 p-2'>
+							<div class='h5 mb-2 mt-2'> Referência:
+							</div>
+						</div>
+						<div class='col p-3 offset-md-1'>
+							<span class=' h5 font-weight-light text-muted'>{{Item.reference}}
+							</span>
+						</div>
+					</div>
+                    {% if Item.type_item == "ANÉIS" %}
+                    <div class='row mb-3'>
+						<div class='col-3 col-sm-5 p-2'>
+							<div class='h5 mb-2 mt-2'> Tamanho:
+							</div>
+						</div>
+						<div class='col p-3 offset-md-1'>
+							<span class=' h5 font-weight-light text-muted'>{{Item.tamanho}}
+							</span>
+						</div>
+					</div>
+                    {% endif %}
+					<div class='row mb-3'>
+						<div class='col-3 col-sm-5 p-2'>
+							<div class='h5 mb-2 mt-2'> Marca:
+							</div>
+						</div>
+						<div class='col p-3 offset-md-1'>
+							<span class=' h5 font-weight-light text-muted'>{{Item.type_fornecedor}}
+							</span>
+						</div>
+					</div>
+					<div class='row mb-3'>
+						<div class='col-3 col-sm-5 p-2'>
+							<div class='h5 mb-2 mt-2'> Preço:
+							</div>
+						</div>
+						<div class='col p-3 offset-md-1'>
+							<span class=' h5 font-weight-light text-muted'>{{Item.price}} €
+							</span>
+						</div>
+					</div>
+					<!--<div class='row border mb-3'>
+						<div class='h5 mb-2 mt-2'> Tipo: <span class='text-muted'>
+						{{Item.type_item}} </span>
+						</div> <br>
+					</div>
+					<div class='row border mb-3'>
+						<div class='h5 mb-2 mt-2'> REF: <span class='text-muted'>
+						{{Item.reference}} </span>
+						</div> <br>
+					</div>
+					<div class='row border mb-3'>
+						<div class='h5 mb-2 mt-2'> Marca: <span class='text-muted'>
+						{{Item.type_fornecedor}}</span>
+						</div> <br>
+					</div>
+					<div class='row border mb-3'>
+						<hr>
+						<div class='h5 mb-2 mt-2'> Preço: <span class='text-muted'>
+						{{Item.price}} €</span>
+						</div> <br>
+					</div>
+					</div>-->
+			</div>
+			<div class='col-lg-5 col-sm-12 m-4 d-block'>
+
+					{% include 'catalog/snippets/cart_update.html' with product=Item cart=cart %}
+
+			</div>
+			<div class="fb-like" data-href="{% url 'detail' object.id%}" data-layout="standard" data-action="like" data-size="small" data-show-faces="true" data-share="true">
+
+			</div>
+		</div>
+	</div>
+</div>
+
+
+
+{% endblock content %}
+
+
+</body>
+</html>

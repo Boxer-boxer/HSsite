@@ -1,0 +1,30 @@
+{% extends "catalog/navbar.html" %}
+<head>
+	 <title>Helena Silva - Perfil de {{user.username}} </title>
+</head>
+
+{% block content %}
+
+    <span class=' card border-warning m-5 p-5'>
+
+        <span class='text-muted h5'> Nome Completo: </span><p class='m-3 mb-4'> {{order.nome_completo}} </p>
+
+        <span class='text-muted h5'> Morada: </span><p class='m-3 mb-4'> {{order.rua}}, {{order.numero}} </p>
+
+        <span class='text-muted h5'> Código Postal: </span><p class='m-3 mb-4 '> {{order.codigo_postal_1}}-{{order.codigo_postal_2}} </p>
+
+        <span class='text-muted h5'> Nº de encomenda: </span><p class='m-3 mb-4'> {{order.cart}} </p>
+
+        <span class='text-muted h5'> Subtotal: </span><p class='m-3 mb-4'> {{order.total}}.00 € </p>
+
+        <span class='text-muted h5'> Producto encomendado: </span><p class='m-3 mb-4'> {{order.items}}  </p>
+
+
+        <a class='btn btn-warning offset-md-10 ' href="{% url 'profile' %}">Voltar</a>
+
+
+
+{% endblock content %}
+
+
+</span>
